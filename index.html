@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eeeadd">
+<title>Marina Clara · Inteligência Artificial</title>
+<meta name="description" content="Portfólio de Marina Clara, estudante de Inteligência Artificial na FIAP. Projetos em machine learning, NLP, segurança de IA e desenvolvimento de soluções.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --paper:#eeeadd;--paper-2:#f7f5ee;--white:#fffefa;--ink:#20251e;--muted:#687064;
+ --moss:#354735;--moss-2:#52664b;--olive:#78815a;--line:#d7d6c8;--clay:#c5b99d;
+ --mono:"DM Mono",monospace;--sans:"DM Sans",sans-serif;--serif:"Playfair Display",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+::selection{background:#cbd0b9;color:var(--moss)}
+.site-nav{position:sticky;top:0;z-index:20;background:rgba(238,234,221,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(53,71,53,.13)}
+.nav-inner{max-width:1180px;margin:auto;padding:14px 5.5%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font:600 15px var(--serif);letter-spacing:.02em;color:var(--moss);text-decoration:none}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--moss)}
+.menu-mark{font:11px var(--mono);color:var(--olive)}
+.wrap{max-width:1180px;margin:auto;padding:0 5.5%}
+.hero{min-height:660px;padding-top:86px;padding-bottom:84px;display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:6%}
+.eyebrow,.section-kicker{font:11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--moss-2)}
+.eyebrow{display:flex;align-items:center;gap:12px}
+.eyebrow:before{content:"";width:34px;height:1px;background:var(--olive)}
+h1,h2,h3,p{margin-top:0}
+h1{font:600 clamp(3.3rem,7vw,6.6rem)/.99 var(--serif);letter-spacing:-.055em;color:var(--moss);margin:25px 0}
+h1 em{font-weight:500;color:var(--olive)}
+.hero-copy{max-width:570px;color:#4f574b;font-size:17px;line-height:1.85}
+.hero-meta{margin-top:30px;font:11px var(--mono);letter-spacing:.07em;color:var(--muted);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.dot{width:4px;height:4px;border-radius:50%;background:var(--olive);display:inline-block}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:12px 18px;border:1px solid var(--moss);border-radius:2px;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.04em;transition:background .25s,color .25s,transform .25s}
+.btn.primary{background:var(--moss);color:var(--white)}
+.btn.secondary{color:var(--moss)}
+.btn:hover{transform:translateY(-2px);background:var(--olive);border-color:var(--olive);color:white}
+.btn .arrow{font-size:16px;line-height:1}
+.hero-art{position:relative;min-height:440px;display:grid;place-items:center}
+.art-frame{position:absolute;inset:8% 5% 5% 10%;border:1px solid #c9c8b8;transform:rotate(3deg)}
+.art-orbit{position:absolute;width:310px;height:310px;border:1px solid #b9bea7;border-radius:50%;transform:rotate(-22deg)}
+.art-orbit:before,.art-orbit:after{content:"";position:absolute;border:1px solid #c7c8b9;border-radius:50%;inset:28px -22px;transform:rotate(48deg)}
+.art-orbit:after{inset:70px -48px;transform:rotate(-66deg)}
+.core{width:126px;height:126px;border-radius:50%;background:var(--moss);display:grid;place-items:center;color:#f5f1e5;position:relative;z-index:2;box-shadow:0 0 0 12px rgba(82,102,75,.08),0 0 0 26px rgba(82,102,75,.04)}
+.core svg{width:72px;height:72px}
+.node{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--olive);border:3px solid var(--paper);z-index:3}
+.n1{top:18%;left:28%}.n2{top:27%;right:13%;width:17px;height:17px;background:var(--clay)}
+.n3{bottom:18%;left:17%;width:10px;height:10px}.n4{bottom:23%;right:18%;background:var(--moss)}
+.art-label{position:absolute;right:0;bottom:1%;font:10px var(--mono);letter-spacing:.13em;color:var(--muted);writing-mode:vertical-rl}
+.art-index{position:absolute;left:0;top:8%;font:10px var(--mono);color:var(--olive);letter-spacing:.1em}
+.intro-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;display:flex;justify-content:space-between;gap:25px;align-items:center;color:var(--muted);font:11px var(--mono);letter-spacing:.07em}
+.intro-strip strong{color:var(--moss);font-weight:500}
+section.content-section{padding:105px 0;border-bottom:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:.42fr 1fr;gap:7%;margin-bottom:45px}
+.section-kicker{padding-top:10px}
+.section-head h2{font:500 clamp(2.2rem,4vw,3.7rem)/1.1 var(--serif);letter-spacing:-.035em;color:var(--moss);margin:0;max-width:680px}
+.section-head h2 em{color:var(--olive)}
+.about-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:10%;align-items:start}
+.about-aside{border-left:2px solid var(--olive);padding:3px 0 3px 20px;color:var(--muted);font:12px/1.8 var(--mono)}
+.about-text{font-size:18px;line-height:1.9;max-width:720px}
+.about-text p:last-child{margin-bottom:0}
+.project-list{display:grid;gap:18px}
+.project{background:var(--paper-2);border:1px solid var(--line);display:grid;grid-template-columns:68px 1fr;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
+.project:hover{border-color:#9da58c;transform:translateY(-3px)}
+.project-number{padding:26px 0;text-align:center;border-right:1px solid var(--line);font:11px var(--mono);color:var(--olive)}
+.project-main{padding:28px 34px 30px}
+.project-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+.project h3{font:500 clamp(1.5rem,2.5vw,2.1rem)/1.2 var(--serif);color:var(--moss);margin:0 0 7px}
+.project-sub{font-size:12px;color:var(--mut);margin-bottom:20px}
+.status{font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--olive);white-space:nowrap;border:1px solid #c9cdbb;padding:6px 9px}
+.project-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 23px}
+.tag{font:10px var(--mono);padding:5px 9px;border:1px solid #d4d4c7;color:#606a59}
+.tag.good{background:#e5e9dc;border-color:#c6ceba;color:var(--moss)}
+.tag.caution{background:#f0eadc;border-color:#ddd2b9;color:#766746}
+.project-details{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.detail-label{font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--olive);margin-bottom:10px}
+.project ul{margin:0;padding-left:17px;color:#51594e;font-size:13px;line-height:1.8}
+.project li{padding-left:3px;margin:0 0 7px}
+.project-links{display:flex;gap:9px;flex-wrap:wrap;margin-top:23px;padding-top:18px;border-top:1px solid var(--line)}
+.text-link{font:11px var(--mono);color:var(--moss);text-decoration:none;border-bottom:1px solid #aab19c;padding-bottom:3px;transition:color .2s}
+.text-link:hover{color:var(--olive);border-color:var(--olive)}
+.work-in-progress{display:grid;grid-template-columns:.42fr 1fr;gap:7%;margin-top:65px;padding-top:30px;border-top:1px solid var(--line)}
+.work-in-progress h3{font:500 23px var(--serif);color:var(--moss);margin:0}
+.work-in-progress ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px}
+
+.featured-article{margin-top:65px;padding:34px 38px 30px;background:var(--paper-2);border:1px solid var(--line)}
+.article-heading{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:start}
+.article-heading h3{max-width:850px;margin:14px 0 13px;font:500 clamp(1.8rem,3.5vw,3rem)/1.13 var(--serif);letter-spacing:-.035em;color:var(--moss)}
+.article-deck{max-width:760px;color:var(--muted);font-size:15px;line-height:1.8;margin:0}
+.article-stamp{border:1px solid #c9cdbb;padding:10px 13px;text-align:center;font:10px/1.7 var(--mono);letter-spacing:.1em;color:var(--olive)}
+.article-stamp span{color:var(--moss)}
+.article-meta{display:flex;gap:10px;flex-wrap:wrap;margin:27px 0 22px;padding:13px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font:10px var(--mono);letter-spacing:.1em;color:var(--olive)}
+.article-intro{max-width:850px;font:500 17px/1.85 var(--sans);color:#485246;margin-bottom:35px}
+.article-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:42px;row-gap:28px}
+.article-point{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+.article-number{font:11px var(--mono);color:var(--olive);padding-top:4px}
+.article-point h4{font:500 19px/1.3 var(--serif);color:var(--moss);margin:0 0 10px}
+.article-point p,.article-caveat p{font-size:13px;line-height:1.85;color:#586052;margin:0 0 10px}
+.article-caveat{margin-top:30px;padding:20px 22px;background:#eeecdf;border-left:2px solid var(--olive)}
+.article-caveat p{margin:0;max-width:900px}
+.article-footnote{font-size:11px;line-height:1.8;color:var(--muted);margin:22px 0 0}
+.article-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+
+.tech-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:10%;align-items:start}
+.tech-note{font:12px/1.8 var(--mono);color:var(--muted);max-width:260px}
+.tech-cloud{display:flex;flex-wrap:wrap;gap:9px}
+.tech{padding:10px 14px;border:1px solid #c9cabb;background:rgba(255,254,250,.35);font-size:13px;color:var(--moss);transition:background .2s,transform .2s}
+.tech:hover{background:var(--white);transform:translateY(-2px)}
+.contact{background:var(--moss);color:#f4f0e5;padding:80px 0}
+.contact-inner{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+.contact .section-kicker{color:#c5cdb5}
+.contact h2{font:500 clamp(2.5rem,5vw,4.8rem)/1.05 var(--serif);letter-spacing:-.04em;margin:18px 0;color:#f4f0e5}
+.contact p{color:#d1d6c8;max-width:540px;margin:0}
+.contact .btn{border-color:#e2e5d8;color:var(--moss);background:#f4f0e5}
+.contact .btn:hover{background:#c7cfb7;border-color:#c7cfb7}
+footer{padding:24px 0 32px;background:var(--moss);border-top:1px solid rgba(255,255,255,.17);color:#c4cbbb}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;font:10px var(--mono);letter-spacing:.08em}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{transition:none!important}}
+@media(max-width:760px){
+ .nav-inner{padding:12px 5%}.nav-links{gap:13px}.nav-links a{font-size:10px}.menu-mark{display:none}
+ .wrap{padding:0 6%}.hero{min-height:0;padding-top:68px;padding-bottom:58px;grid-template-columns:1fr;gap:15px}
+ h1{font-size:clamp(3.2rem,15vw,5.2rem);margin:22px 0}
+ .hero-copy{font-size:15px}.hero-art{min-height:330px;margin:0 3%}
+ .art-orbit{width:240px;height:240px}.core{width:100px;height:100px}
+ .intro-strip{align-items:flex-start;flex-direction:column;gap:7px}
+ section.content-section{padding:72px 0}
+ .section-head,.about-grid,.tech-layout,.work-in-progress{grid-template-columns:1fr;gap:20px}
+ .article-heading{grid-template-columns:1fr}.article-stamp{justify-self:start}.article-grid{grid-template-columns:1fr}.featured-article{padding:24px 18px}.article-intro{font-size:15px}
+ .section-head{margin-bottom:32px}.about-text{font-size:16px}
+ .project{grid-template-columns:38px 1fr}.project-number{padding-top:24px;font-size:10px}
+ .project-main{padding:22px 17px}.project-top{display:block}.status{display:inline-block;margin:8px 0 0}
+ .project-details{grid-template-columns:1fr;gap:20px}
+ .work-in-progress{margin-top:45px}.tech-note{max-width:500px}
+ .contact{padding:65px 0}.contact-inner{grid-template-columns:1fr;align-items:start}
+ .footer-inner{flex-direction:column;gap:8px}
+}
+@media(max-width:390px){.nav-links{gap:9px}.nav-links a{letter-spacing:.02em}.project-main{padding:19px 13px}}
+</style>
+</head>
+<body>
+<nav class="site-nav" aria-label="Navegação principal">
+ <div class="nav-inner">
+  <a class="brand" href="#inicio">MC<span style="color:var(--olive)">.</span></a>
+  <div class="nav-links">
+   <a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#tecnologias">Tecnologias</a><a href="#contato">Contato</a>
+  </div>
+  <span class="menu-mark">PORTFÓLIO / 2026</span>
+ </div>
+</nav>
+<header class="wrap hero" id="inicio">
+ <div class="reveal">
+  <div class="eyebrow">Tecnologia · Inteligência Artificial</div>
+  <h1>Ideias que<br>se tornam <em>soluções.</em></h1>
+  <p class="hero-copy">Sou Marina Clara, estudante de Inteligência Artificial na FIAP. Exploro machine learning, processamento de linguagem natural e segurança de sistemas inteligentes — sempre com curiosidade, método e atenção ao que os dados realmente mostram.</p>
+  <div class="hero-meta"><span>INTELIGÊNCIA ARTIFICIAL — 3º SEMESTRE</span><i class="dot"></i><span>FIAP</span></div>
+  <div class="actions">
+   <a class="btn primary" href="#projetos">Explorar projetos <span class="arrow">↘</span></a>
+   <a class="btn secondary" href="mailto:marinaclaramedia@gmail.com">Entrar em contato <span class="arrow">↗</span></a>
+  </div>
+ </div>
+ <div class="hero-art reveal" aria-label="Ilustração abstrata de conexões inspiradas em redes neurais">
+  <div class="art-frame"></div><div class="art-orbit"></div>
+  <div class="core"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"><path d="M40 12v56M12 40h56M20 20l40 40M60 20L20 60" stroke="#e9eadf" stroke-width="1" opacity=".45"/><circle cx="40" cy="40" r="15" stroke="#e9eadf" stroke-width="1.4"/><circle cx="40" cy="40" r="4" fill="#c7cfb7"/><circle cx="40" cy="12" r="3" fill="#c7cfb7"/><circle cx="68" cy="40" r="3" fill="#c7cfb7"/><circle cx="20" cy="20" r="3" fill="#c7cfb7"/><circle cx="20" cy="60" r="3" fill="#c7cfb7"/></svg></div>
+  <span class="node n1"></span><span class="node n2"></span><span class="node n3"></span><span class="node n4"></span>
+  <span class="art-index">FIG. 01 / CONEXÕES</span><span class="art-label">HUMAN CURIOSITY × MACHINE INTELLIGENCE</span>
+ </div>
+</header>
+<div class="wrap"><div class="intro-strip"><span><strong>01 —</strong> PESQUISA E EXPERIMENTAÇÃO</span><span><strong>02 —</strong> DESENVOLVIMENTO COM RESPONSABILIDADE</span><span><strong>03 —</strong> APRENDIZADO CONTÍNUO</span></div></div>
+<main class="wrap">
+ <section class="content-section" id="sobre">
+  <div class="section-head reveal"><div class="section-kicker">01 / Ponto de vista</div><h2>Construir com intenção.<br><em>Medir antes de afirmar.</em></h2></div>
+  <div class="about-grid reveal">
+   <aside class="about-aside">UMA ABORDAGEM GUIADA POR<br>DADOS, TESTES E CURIOSIDADE.</aside>
+   <div class="about-text"><p>Eu documento as limitações, separo dados sintéticos de reais e meço antes de afirmar. Os projetos abaixo foram desenvolvidos com assistência de IA (Claude), e eu revisei e testei os resultados. Cada número desta página vem de uma execução registrada no repositório correspondente.</p></div>
+  </div>
+ </section>
+ <section class="content-section" id="projetos">
+  <div class="section-head reveal"><div class="section-kicker">02 / Laboratório</div><h2>Projetos realizados</h2></div>
+  <div class="project-list">
+   <article class="project reveal">
+    <div class="project-number">01</div><div class="project-main">
+     <div class="project-top"><div><h3>PromptShield</h3><div class="project-sub">Detector de prompt injection · Português e inglês</div></div><span class="status">Segurança de IA</span></div>
+     <div class="project-sub">Challenge Intelliway (FIAP), Sprint 1 em dupla com Yasmin Leite; a versão 2.0 é minha evolução.</div>
+     <div class="project-tags"><span class="tag good">32 testes</span><span class="tag good">F1 · 0,951</span><span class="tag caution">Dados sintéticos</span><span class="tag caution">Transformer não executado</span></div>
+     <div class="project-details">
+      <div><div class="detail-label">Resultados medidos</div><ul>
+       <li>2.854 exemplos sintéticos gerados por 64 modelos de frase; divisão <b>por modelo de frase</b>, sem vazamento (verificado por teste automatizado).</li>
+       <li>F1 de 0,951 no teste com modelos de frase inéditos (TF-IDF + Regressão Logística).</li>
+       <li>Os 26 falsos positivos do teste vêm de 2 modelos de frase: pedidos para <i>explicar</i> uma frase de ataque entre aspas. O modelo não distingue citar de executar.</li>
+      </ul></div>
+      <div><div class="detail-label">Construção & limitações</div><ul>
+       <li>API FastAPI com autenticação por chave, rate limit e log sem o texto bruto; interface React com histórico e dashboard.</li>
+       <li>Dados sintéticos e não revisados por pessoas. O Transformer está escrito, mas não foi executado.</li>
+      </ul></div>
+     </div>
+     <div class="project-links"><a class="text-link" href="https://github.com/marinaclaaara/PromptShield-2.0" target="_blank" rel="noopener noreferrer">Código no GitHub ↗</a><a class="text-link" href="https://huggingface.co/datasets/marinaclara/PromptShield-Dataset" target="_blank" rel="noopener noreferrer">Dataset no Hugging Face ↗</a></div>
+    </div>
+   </article>
+   <article class="project reveal">
+    <div class="project-number">02</div><div class="project-main">
+     <div class="project-top"><div><h3>ML Model Lab</h3><div class="project-sub">Classificação de sentimento em português</div></div><span class="status">Machine learning · NLP</span></div>
+     <div class="project-sub">Dataset B2W-Reviews01 (B2W Digital, CC BY-NC-SA 4.0: uso não comercial).</div>
+     <div class="project-tags"><span class="tag good">Reprodutível</span><span class="tag good">F1 macro · 0,943</span><span class="tag caution">Transformer não executado</span></div>
+     <div class="project-details">
+      <div><div class="detail-label">Resultados medidos</div><ul>
+       <li>110.859 reviews após limpeza; divisão por autor (0 autores compartilhados entre treino e teste).</li>
+       <li>F1 macro de 0,943 (IC 95%: 0,938 a 0,947) contra 0,418 do modelo que sempre responde “positivo”.</li>
+       <li>Regressão Logística e SVM empatam: o intervalo de confiança da diferença inclui zero.</li>
+       <li>Os erros mais convictos do modelo pareciam rótulos ruins (elogio com nota 1, reclamação com nota 5). Não quantifiquei a proporção.</li>
+      </ul></div>
+      <div><div class="detail-label">Limitações</div><ul><li>Rótulo derivado da nota; só e-commerce brasileiro; produtos compartilhados entre treino e teste.</li></ul></div>
+     </div>
+     <div class="project-links"><a class="text-link" href="https://github.com/marinaclaaara/ML-Model-Lab" target="_blank" rel="noopener noreferrer">Código no GitHub ↗</a><a class="text-link" href="https://huggingface.co/spaces/marinaclara/sentimento-ptbr-b2w" target="_blank" rel="noopener noreferrer">Experimentar demo no Hugging Face ↗</a></div>
+    </div>
+   </article>
+   <article class="project reveal">
+    <div class="project-number">03</div><div class="project-main">
+     <div class="project-top"><div><h3>AI Business Agent</h3><div class="project-sub">Triagem de PDFs com humano no circuito</div></div><span class="status">Agentes de IA</span></div>
+     <div class="project-sub">Prova de conceito com dados sintéticos.</div>
+     <div class="project-tags"><span class="tag good">49 testes</span><span class="tag caution">Dados sintéticos</span><span class="tag caution">LLM real não testado</span></div>
+     <div class="project-details">
+      <div><div class="detail-label">Resultados medidos</div><ul>
+       <li>120 PDFs avaliados. Das 16 injeções, a guarda barrou 4, mandou 7 para revisão e deixou 5 passarem.</li>
+       <li>A proteção que importa não depende do classificador: permissões em 3 níveis. Resultado: 0 e-mails e 0 reembolsos sem aprovação humana.</li>
+       <li>Verifiquei os testes de segurança quebrando as regras de propósito (3 mutações, todas detectadas).</li>
+      </ul></div>
+      <div><div class="detail-label">Limitações</div><ul><li>Extração por regras quebra em layouts novos; economia de tempo não medida; sem OCR; e-mail e reembolso simulados.</li></ul></div>
+     </div>
+     <div class="project-links"><a class="text-link" href="https://github.com/marinaclaaara/AI-Business-Agent" target="_blank" rel="noopener noreferrer">Código no GitHub ↗</a></div>
+    </div>
+   </article>
+  </div>
+  <article class="featured-article reveal" id="artigo">
+   <div class="article-heading">
+    <div><div class="section-kicker">Artigo técnico · Avaliação de modelos</div>
+     <h3>Medir bem é mais difícil que treinar: o que aprendi com um detector de prompt injection, um agente de PDFs e um classificador de sentimento</h3>
+     <p class="article-deck">Três projetos, diferentes tarefas e uma mesma lição: métricas só têm valor quando entendemos exatamente o que elas medem — e onde deixam de ser confiáveis.</p>
+    </div>
+    <div class="article-stamp">PESQUISA<br>APLICADA<br><span>2026</span></div>
+   </div>
+   <div class="article-meta"><span>BASEADO EM EXECUÇÕES REAIS</span><span>·</span><span>PYTHON / MACHINE LEARNING / SEGURANÇA DE IA</span></div>
+   <div class="article-intro">Treinar um classificador pode levar segundos. O trabalho mais difícil é interpretar seus resultados sem confundir um número alto com evidência de desempenho real. Ao desenvolver o PromptShield 2.0, o AI Business Agent e um classificador de sentimento em português, encontrei limitações que mudaram a forma como avalio sistemas de IA.</div>
+   <div class="article-grid">
+    <section class="article-point"><span class="article-number">01</span><div><h4>Quando o resultado parece bom demais</h4><p>No PromptShield 2.0, gerei 2.854 exemplos sintéticos em português e inglês a partir de 64 modelos de frase. Para reduzir vazamento, separei os dados por modelo de frase e removi duplicatas após normalização do texto, com verificação automatizada.</p><p>A validação atingiu ROC-AUC de 1,000 — um resultado que tratei como alerta de saturação, não como prova de excelência. Regressão Logística e SVM empataram; escolhi a primeira por simplicidade.</p></div></section>
+    <section class="article-point"><span class="article-number">02</span><div><h4>Citar um ataque não é executar um ataque</h4><p>Em modelos de frase inéditos, o detector alcançou F1 de 0,951. Os 26 falsos positivos se concentraram em apenas dois modelos: solicitações legítimas para explicar ou revisar a gramática de frases de ataque citadas. Um classificador baseado em n-gramas tende a reconhecer as palavras, mas não necessariamente a intenção.</p><p>Em 46 frases escritas manualmente pelo grupo original, o F1 foi 0,913. Esse resultado deve ser lido com cautela: parte dos modelos de frase foi criada após eu ter contato com essas frases, o que pode torná-lo otimista.</p></div></section>
+    <section class="article-point"><span class="article-number">03</span><div><h4>A segurança não pode depender só do classificador</h4><p>No AI Business Agent, avaliei 120 PDFs sintéticos. Entre 16 injeções, a guarda barrou quatro, encaminhou sete para revisão e deixou cinco passarem — incluindo instruções para manipular a classificação.</p><p>A proteção central está na política de permissões: o agente apenas prepara o envio de e-mails, que exige aprovação humana, e não pode aprovar reembolsos. Nos testes, não houve e-mails nem reembolsos sem aprovação humana. Três mutações intencionais confirmaram que os testes de segurança detectavam violações. Além disso, os 28 erros de categoria foram abstenções encaminhadas a uma pessoa; as regras cobriram cerca de 72% dos casos.</p></div></section>
+    <section class="article-point"><span class="article-number">04</span><div><h4>Os próprios rótulos também podem estar errados</h4><p>No B2W-Reviews01, após a limpeza, trabalhei com 110.859 avaliações. TF-IDF + SVM alcançou F1 macro de 0,943, contra 0,418 de um baseline que sempre prevê “positivo”. Como esse baseline já obtém 71,8% de acurácia, o F1 macro oferece uma leitura mais informativa do equilíbrio entre classes.</p><p>Os intervalos de confiança por bootstrap indicaram empate entre Regressão Logística e SVM. Na análise qualitativa, alguns erros mais convictos pareciam vir dos próprios rótulos: elogios associados à nota 1 e reclamações graves associadas à nota 5.</p></div></section>
+   </div>
+   <div class="article-caveat"><div class="detail-label">O que ainda não foi medido</div><p>Não executei Transformers: o ambiente não tinha GPU. Embora exista código preparado, não faço afirmações sobre seu desempenho. Também não medi o tempo humano economizado pelo agente; os cerca de 12 ms por PDF representam apenas o tempo de execução do próprio agente e, isoladamente, não demonstram ganho operacional.</p></div>
+   <p class="article-footnote">Nota de autoria: o PromptShield-BR original (Sprint 1) foi desenvolvido por mim e por Yasmin Leite, no FIAP Challenge Intelliway. A versão 2.0 do PromptShield e os demais projetos descritos são extensões e trabalhos posteriores. Os resultados apresentados são provenientes dos registros de execução dos projetos (metrics.json e evaluation.json).</p>
+   <div class="article-links"><a class="text-link" href="https://github.com/marinaclaaara/PromptShield-2.0" target="_blank" rel="noopener noreferrer">Ver avaliação do PromptShield ↗</a><a class="text-link" href="https://github.com/marinaclaaara/ML-Model-Lab" target="_blank" rel="noopener noreferrer">Ver experimentos de sentimento ↗</a><a class="text-link" href="https://github.com/marinaclaaara/AI-Business-Agent" target="_blank" rel="noopener noreferrer">Ver testes do agente ↗</a></div>
+  </article>
+ </section>
+ <section class="content-section" id="tecnologias">
+  <div class="section-head reveal"><div class="section-kicker">03 / Ferramentas</div><h2>Tecnologias com evidência<br><em>nos projetos.</em></h2></div>
+  <div class="tech-layout reveal"><p class="tech-note">FERRAMENTAS E LINGUAGENS UTILIZADAS NA CONSTRUÇÃO, EXPERIMENTAÇÃO E AVALIAÇÃO DOS PROJETOS.</p><div class="tech-cloud">
+   <span class="tech">Python</span><span class="tech">pandas</span><span class="tech">NumPy</span><span class="tech">scikit-learn</span><span class="tech">FastAPI</span><span class="tech">Pydantic</span><span class="tech">SQLAlchemy</span><span class="tech">pytest</span><span class="tech">ruff</span><span class="tech">React</span><span class="tech">Vite</span><span class="tech">matplotlib</span><span class="tech">pypdf</span><span class="tech">LLMs</span><span class="tech">Machine Learning</span><span class="tech">n8n</span><span class="tech">Cursor</span><span class="tech">Ziper</span><span class="tech">Make</span>
+  </div></div>
+ </section>
+</main>
+<section class="contact" id="contato"><div class="wrap contact-inner">
+ <div><div class="section-kicker">04 / Vamos conversar</div><h2>Boas ideias começam<br>com uma conversa.</h2><p>Se quiser trocar ideias sobre tecnologia, Inteligência Artificial ou projetos, será um prazer entrar em contato.</p></div>
+ <div class="actions"><a class="btn" href="mailto:marinaclaramedia@gmail.com">Enviar um e-mail ↗</a><a class="btn" href="https://www.linkedin.com/in/marina-clara-45382b351?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn" href="https://github.com/marinaclaaara?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+</div></section>
+<footer><div class="wrap footer-inner"><span>© MARINA CLARA CONSTATINO RIBEIRO</span><span>FEITO COM CURIOSIDADE · 2026</span></div></footer>
+<script>
+(function(){
+ const items=document.querySelectorAll('.reveal');
+ if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){items.forEach(el=>el.classList.add('visible'));return;}
+ const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});
+ },{threshold:.12});
+ items.forEach(el=>observer.observe(el));
+})();
+</script>
+</body>
+</html>
